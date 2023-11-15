@@ -11,11 +11,11 @@ let elapsedMs = 0;
 
 //ミリ秒、秒、分の定義と文字列化する関数
 function timeToString(millis){
-    const ms = millis % 100;
+    const ms = millis % 1000;
     const s = Math.floor(millis / 1000)　% 60;
     const m = Math.floor(millis / 1000 /60);
     
-    const formattedMs = ms.toString().padStart(2,'0');
+    const formattedMs = ms.toString().padStart(3,'0');
     const formattedS = s.toString().padStart(2,'0');
     const formattedM = m.toString().padStart(2,'0');
 
@@ -56,7 +56,7 @@ reset.addEventListener('click', () => {
     clearInterval(timerId);
     start.textContent = 'スタート';
     elapsedMs = 0;
-    stopwatch.textContent = '00:00.00'
+    stopwatch.textContent = '00:00.000'
     
     start.disabled = false;
     stop.disabled = true;
